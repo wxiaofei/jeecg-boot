@@ -28,7 +28,8 @@
 
         <template v-if="!model.id">
           <a-form-item label="登陆密码" :labelCol="labelCol" :wrapperCol="wrapperCol" >
-            <a-input type="password" placeholder="请输入登陆密码" v-decorator="[ 'password', validatorRules.password]" />
+            <!--, validatorRules.password-->
+            <a-input type="password" placeholder="请输入登陆密码" v-decorator="[ 'password']" />
           </a-form-item>
 
           <a-form-item label="确认密码" :labelCol="labelCol" :wrapperCol="wrapperCol" >
@@ -45,6 +46,7 @@
             mode="multiple"
             style="width: 100%"
             placeholder="请选择用户角色"
+            optionFilterProp = "children"
             v-model="selectedRole">
             <a-select-option v-for="(role,roleindex) in roleList" :key="roleindex.toString()" :value="role.id">
               {{ role.roleName }}
@@ -103,9 +105,6 @@
           <a-input placeholder="请输入手机号码" :disabled="isDisabledAuth('user:form:phone')" v-decorator="[ 'phone', validatorRules.phone]" />
         </a-form-item>
 
-        <a-form-item label="工作流引擎" :labelCol="labelCol" :wrapperCol="wrapperCol">
-          <j-dict-select-tag  v-decorator="['activitiSync', {}]" placeholder="请选择是否同步工作流引擎" :type="'radio'" :triggerChange="true" dictCode="activiti_sync"/>
-        </a-form-item>
 
       </a-form>
     </a-spin>
@@ -411,7 +410,7 @@
         if(!value){
           callback()
         }else{
-          if(new RegExp(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/).test(value)){
+          if(new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(value)){
             var params = {
               tableName: 'sys_user',
               fieldName: 'email',

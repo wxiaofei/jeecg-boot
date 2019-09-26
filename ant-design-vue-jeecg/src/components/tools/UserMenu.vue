@@ -1,10 +1,6 @@
 <template>
   <div class="user-wrapper" :class="theme">
-    <span class="action">
-      <a class="logout_title" target="_blank" href="http://jeecg-boot.mydoc.io">
-        <a-icon type="question-circle-o"></a-icon>
-      </a>
-    </span>
+
     <header-notice class="action"/>
     <a-dropdown>
       <span class="action action-full ant-dropdown-link user-dropdown-menu">
@@ -24,11 +20,15 @@
             <span>账户设置</span>
           </router-link>
         </a-menu-item>
-        <a-menu-item key="2" @click="updatePassword">
+        <a-menu-item key="3"  @click="systemSetting">
+           <a-icon type="tool"/>
+           <span>系统设置</span>
+        </a-menu-item>
+        <a-menu-item key="4" @click="updatePassword">
           <a-icon type="setting"/>
           <span>密码修改</span>
         </a-menu-item>
-        <a-menu-item key="3" @click="updateCurrentDepart">
+        <a-menu-item key="5" @click="updateCurrentDepart">
           <a-icon type="cluster"/>
           <span>切换部门</span>
         </a-menu-item>
@@ -53,12 +53,14 @@
     </span>
     <user-password ref="userPassword"></user-password>
     <depart-select ref="departSelect" :closable="true" title="部门切换"></depart-select>
+    <setting-drawer ref="settingDrawer" :closable="true" title="系统设置"></setting-drawer>
   </div>
 </template>
 
 <script>
   import HeaderNotice from './HeaderNotice'
   import UserPassword from './UserPassword'
+  import SettingDrawer from "@/components/setting/SettingDrawer";
   import DepartSelect from './DepartSelect'
   import { mapActions, mapGetters } from 'vuex'
   import { mixinDevice } from '@/utils/mixin.js'
@@ -69,7 +71,8 @@
     components: {
       HeaderNotice,
       UserPassword,
-      DepartSelect
+      DepartSelect,
+      SettingDrawer
     },
     props: {
       theme: {
@@ -112,6 +115,9 @@
       },
       updateCurrentDepart(){
         this.$refs.departSelect.show()
+      },
+      systemSetting(){
+        this.$refs.settingDrawer.showDrawer()
       }
     }
   }

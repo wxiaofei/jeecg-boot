@@ -27,7 +27,7 @@ public class TmsCateMaterial implements Serializable {
 	}
 
 	public TmsCateMaterial(String id, String cateId) {
-		this.cateId = id;
+		this.materialId = id;
 		this.cateId = cateId;
 	}
 }

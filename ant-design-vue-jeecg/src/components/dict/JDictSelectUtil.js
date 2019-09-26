@@ -85,3 +85,26 @@ export async function ajaxFilterDictText(dictCode, key) {
     return '';
   }
 }
+
+/**
+ * 翻译字段值对应的文本
+ * @param children
+ * @returns string
+ */
+export async function ajaxFilterCateText(dictCode, key) {
+  if (!dictCode) {
+    return '字典Code不能为空!';
+  }
+  //console.log(`key : ${key}`);
+  if (!key) {
+    return '';
+  }
+  //通过请求读取字典文本
+  let res = await getAction(`/sys/dict/getDictText/${dictCode}/${key}`);
+  if (res.success) {
+    // console.log('restult: '+ res.result);
+    return res.result;
+  } else {
+    return '';
+  }
+}

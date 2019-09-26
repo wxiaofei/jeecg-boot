@@ -14,6 +14,7 @@ import org.jeecg.common.system.query.QueryGenerator;
 import org.jeecg.common.util.oConvertUtils;
 import org.jeecg.modules.system.service.ISysUserDepartService;
 import org.jeecg.modules.tms.material.entity.TmsBdMaterial;
+import org.jeecg.modules.tms.material.entity.TmsCateMaterial;
 import org.jeecg.modules.tms.material.service.ITmsBdMaterialService;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -82,7 +83,7 @@ public class TmsBdMaterialController {
 	public Result<TmsBdMaterial> add(@RequestBody TmsBdMaterial tmsBdMaterial) {
 		Result<TmsBdMaterial> result = new Result<TmsBdMaterial>();
 		try {
-			tmsBdMaterialService.save(tmsBdMaterial);
+			tmsBdMaterialService.saveCateMaterial(tmsBdMaterial);
 			result.success("添加成功！");
 		} catch (Exception e) {
 			log.error(e.getMessage(),e);

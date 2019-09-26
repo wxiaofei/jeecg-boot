@@ -2,7 +2,6 @@ package org.jeecg.modules.tms.material.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -10,7 +9,7 @@ import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.jeecgframework.poi.excel.annotation.Excel;
-import org.jeecg.common.aspect.annotation.Dict;
+
 
 /**
  * @Description: 商品管理
@@ -63,4 +62,7 @@ public class TmsBdMaterial implements Serializable {
 	/**nc物料id*/
 	@Excel(name = "nc物料id", width = 15)
 	private String pkMaterial;
+
+	@Excel(name = "分类id", width = 15)
+	private String cateId;
 }

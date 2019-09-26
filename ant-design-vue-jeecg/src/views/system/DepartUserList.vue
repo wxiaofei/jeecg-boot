@@ -16,6 +16,7 @@
               @select="onSelect"
               :dropdownStyle="{maxHeight:'200px',overflow:'auto'}"
               :treeData="departTree"
+
             />
 
           </template>

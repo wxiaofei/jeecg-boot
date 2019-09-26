@@ -2,6 +2,7 @@ package org.jeecg.modules.tms.material.service;
 
 import org.jeecg.modules.tms.material.entity.TmsBdMaterial;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.jeecg.modules.tms.material.entity.TmsCateMaterial;
 
 /**
  * @Description: 商品管理
@@ -10,5 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @Version: V1.0
  */
 public interface ITmsBdMaterialService extends IService<TmsBdMaterial> {
+    public void  saveCateMaterial(TmsBdMaterial material);
 
 }

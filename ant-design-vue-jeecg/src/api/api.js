@@ -45,12 +45,14 @@ const getPermissionRuleList = (params)=>getAction("/sys/permission/getPermRuleLi
 const queryPermissionRule = (params)=>getAction("/sys/permission/queryPermissionRule",params);
 
 // 部门管理
-const queryDepartTreeList = (params)=>getAction("/sysdepart/sysDepart/queryTreeList",params);
-const queryIdTree = (params)=>getAction("/sysdepart/sysDepart/queryIdTree",params);
-const queryParentName   = (params)=>getAction("/sysdepart/sysDepart/queryParentName",params);
-const searchByKeywords   = (params)=>getAction("/sysdepart/sysDepart/searchBy",params);
-const deleteByDepartId   = (params)=>deleteAction("/sysdepart/sysDepart/delete",params);
-
+const queryDepartTreeList = (params)=>getAction("/sys/sysDepart/queryTreeList",params);
+const queryIdTree = (params)=>getAction("/sys/sysDepart/queryIdTree",params);
+const queryParentName   = (params)=>getAction("/sys/sysDepart/queryParentName",params);
+const searchByKeywords   = (params)=>getAction("/sys/sysDepart/searchBy",params);
+const deleteByDepartId   = (params)=>deleteAction("/sys/sysDepart/delete",params);
+//司机管理
+// 部门管理
+const selectDriverList = (params)=>getAction("/driver/tmsBdDriver/list",params);
 //日志管理
 //const getLogList = (params)=>getAction("/sys/log/list",params);
 const deleteLog = (params)=>deleteAction("/sys/log/delete",params);
@@ -79,7 +81,13 @@ const getLoginfo = (params)=>getAction("/sys/loginfo",params);
 const getVisitInfo = (params)=>getAction("/sys/visitInfo",params);
 //数据日志访问
 // const getDataLogList = (params)=>getAction("/sys/dataLog/list",params);
-
+//查询物料分类
+const queryCateTreeList = (params)=>getAction("/materialcate/tmsMaterialCate/queryTreeList",params);
+const queryCateIdTree = (params)=>getAction("/materialcate/tmsMaterialCate/queryIdTree",params);
+const searchCateByKeywords = (params)=>getAction("/materialcate/tmsMaterialCate/searchBy",params);
+const addMaterial = (params)=>postAction("/material/tmsBdMaterial/add",params);
+const editMaterial = (params)=>postAction("/material/tmsBdMaterial/edit",params);
+const searchMaterial = (params)=>gettAction("/material/tmsBdMaterial/list",params);
 // 根据部门主键查询用户信息
 const queryUserByDepId = (params)=>getAction("/sys/user/queryUserByDepId",params);
 
@@ -91,6 +99,9 @@ const duplicateCheck = (params)=>getAction("/sys/duplicate/check",params);
 export {
   // imgView,
   // doMian,
+  queryCateTreeList,
+  queryCateIdTree,
+  searchCateByKeywords,
   addRole,
   editRole,
   checkRoleCode,
@@ -133,6 +144,10 @@ export {
   queryUserRoleMap,
   duplicateCheck,
   queryTreeListForRole,
+  selectDriverList,
+  addMaterial,
+  editMaterial,
+  searchMaterial,
 }
 
 
