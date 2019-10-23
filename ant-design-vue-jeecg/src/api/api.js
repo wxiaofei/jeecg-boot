@@ -87,14 +87,18 @@ const queryCateIdTree = (params)=>getAction("/materialcate/tmsMaterialCate/query
 const searchCateByKeywords = (params)=>getAction("/materialcate/tmsMaterialCate/searchBy",params);
 const addMaterial = (params)=>postAction("/material/tmsBdMaterial/add",params);
 const editMaterial = (params)=>postAction("/material/tmsBdMaterial/edit",params);
-const searchMaterial = (params)=>gettAction("/material/tmsBdMaterial/list",params);
+const searchMaterial = (params)=>getAction("/material/tmsBdMaterial/list",params);
 // 根据部门主键查询用户信息
 const queryUserByDepId = (params)=>getAction("/sys/user/queryUserByDepId",params);
-
+const queryDriverByDepId = (params)=>getAction("/driver/tmsBdDriver/list",params);
 // 查询用户角色表里的所有信息
 const queryUserRoleMap = (params)=>getAction("/sys/user/queryUserRoleMap",params);
 // 重复校验
 const duplicateCheck = (params)=>getAction("/sys/duplicate/check",params);
+//司机
+const getDriverList = (params)=>getAction("/driver/tmsBdDriver/list",params);
+//获取nc合同信息
+const getContractList = (params)=>getAction("/nc/contractMain/queryContractDocList",params);
 
 export {
   // imgView,
@@ -148,6 +152,9 @@ export {
   addMaterial,
   editMaterial,
   searchMaterial,
+  queryDriverByDepId,
+  getDriverList,
+  getContractList
 }
 
 

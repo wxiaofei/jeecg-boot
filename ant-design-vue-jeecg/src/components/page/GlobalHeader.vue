@@ -18,7 +18,7 @@
         @click.native="toggle"/>
 
       <span v-if="device === 'desktop'">欢迎进入汇福粮油物流系统</span>
-      <span v-else>Jeecg-Boot</span>
+      <span v-else>汇福粮油</span>
 
       <user-menu :theme="theme"/>
     </div>
